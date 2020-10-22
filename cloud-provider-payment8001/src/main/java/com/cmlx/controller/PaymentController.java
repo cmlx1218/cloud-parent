@@ -22,7 +22,7 @@ public class PaymentController {
     private IPaymentService iPaymentService;
 
     @PostMapping(value = "/create")
-    public CommonResult create(Payment payment) {
+    public CommonResult create(@RequestBody Payment payment) {
         Integer result = iPaymentService.create(payment);
         log.info("****插入结果：" + result);
         if (result > 0) {
