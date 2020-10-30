@@ -1,0 +1,36 @@
+server:
+  port: 8803
+
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      binders:  # 在此处配置要绑定的rabbitmq的服务信息
+        defaultRabbit:  # 表示要定义的名称，用于binding整合
+          type: rabbit  # 消息组件类型
+          environment:  # 设置rabbitmq的相关环境配置
+            spring:
+              rabbitmq:
+                host: 39.96.178.201
+                port: 5672
+                username: user
+                password: password
+      bindings: # 服务的整合处理
+        intput: # 通道名称
+          destination: studyExchange  # 表示要使用的Exchange的名称
+          content-type: application/json  # 设置消息类型，json，文本为“text/plain”
+          binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+          group: cmlxA
+
+eureka:
+  client:
+    # true表示将自己注册经Eureka Server，默认为true
+    register-with-eureka: true
+    # true表示从Eureka抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      # 设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
+      # defaultZone: http://localhost:7001/eureka/ 单机版
+      # 集群版
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/

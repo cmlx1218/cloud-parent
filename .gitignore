@@ -15,3 +15,14 @@
 /cloud-eureka-server7001/target/
 /cloud-eureka-server7002/target/
 /cloud-consumerzk-order80/target/
+/cloud-config-center3344/target/
+/cloud-config-client3355/target/
+/cloud-stream-rabbitmq-provider8801/target/
+/cloud-config-client3366/target/
+/cloud-stream-rabbitmq-consumer8802/target/
+/cloud-stream-rabbitmq-consumer8803/target/
+/cloudalibaba-provider-payment9001/target/
+/cloudalibaba-provider-payment9002/target/
+/cloudalibaba-consumer-nacos-order83/target/
+/cloudalibaba-consumer-nacos-order83/target/
+/cloudalibaba-config-nacos-client3377/target/
